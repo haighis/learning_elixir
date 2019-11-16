@@ -1,4 +1,4 @@
-defmodule HttpRestClient.Scheduler do
+defmodule HttpUrlTest.Scheduler do
   use GenServer
 
   def start_link do
@@ -13,16 +13,15 @@ defmodule HttpRestClient.Scheduler do
   end
 
   def handle_info(:work, state) do
-    HttpRestClient.run()
+    HttpUrlTest.run()
     schedule_work()
     {:noreply, state}
   end
 
-  @ten_seconds 30000
+  @thirty_seconds 30000
 
   defp schedule_work do
-    # sends in 6 hours
-    Process.send_after(self(), :work, @ten_seconds)
-    #Process.send_after(self(), :work, 6 * 60 * 60 * 1000)
+    # sends every 30 seconds
+    Process.send_after(self(), :work, @thirty_seconds)
   end
 end

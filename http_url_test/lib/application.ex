@@ -1,14 +1,14 @@
-defmodule HttpRestClient.Application do
+defmodule HttpUrlTest.Application do
   use Application
 
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
     children = [
-      worker(HttpRestClient.Scheduler, [])
+      worker(HttpUrlTest.Scheduler, [])
     ]
 
-    opts = [strategy: :one_for_one, name: HttpRestClient.Supervisor]
+    opts = [strategy: :one_for_one, name: HttpUrlTest.Supervisor]
     Supervisor.start_link(children, opts)
   end
 end

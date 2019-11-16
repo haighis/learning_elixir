@@ -1,4 +1,4 @@
-defmodule HttpRestClient do
+defmodule HttpUrlTest do
   # Example global constant atom @table_name :someatom
   def run do
     # IO.puts "I received the message to start work - 1"
